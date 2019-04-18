@@ -1,0 +1,3 @@
+class Solution:
+    def generateMatrix(self, n: int, i = 0) -> List[List[int]]:
+        return [] if i == 2*n-1 else ([list(t) for t in zip(*self.generateMatrix(n, i + 1))][::-1] + [[n*n - (((2*n-2-i)>>1) + ((2*n-2-i) & 1)) * ((2*n-2-i)>>1) - (2*n-2-i) + j for j in range(((2*n-2-i) >> 1) + 1)]])[::-1] if i == 0 else [list(t) for t in zip(*self.generateMatrix(n, i + 1))][::-1] + [[n*n - (((2*n-2-i)>>1) + ((2*n-2-i) & 1)) * ((2*n-2-i)>>1) - (2*n-2-i) + j for j in range(((2*n-2-i) >> 1) + 1)]]
